@@ -12,7 +12,6 @@ print(socket.gethostname())
   
 def hello():
     try:
-        print("Hello world2")
         visites = redis.incr("compteur1")
         print("Hello worldV",visites)
     except RedisError:
@@ -23,7 +22,7 @@ def hello():
            "<b> Hostname : </b> {hostname} <br/>" \
            "<b> visites:</b> {visites} <br/>" \
            "<p> Abonne toi! </p>"
-    return html.format(nom=os.getenv("NOM", "youtube1"),hostname=socket.gethostname(), visites=visites)
+    return html.format(nom=os.getenv("NOM", "youtube2"),hostname=socket.gethostname(), visites=visites)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
